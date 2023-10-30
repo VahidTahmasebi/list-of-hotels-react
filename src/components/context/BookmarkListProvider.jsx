@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 
 import useFetch from "../../hooks/useFetch";
 
-const BASE_URL = "http://localhost:5000/";
+const BASE_URL = "http://localhost:5000";
 
 const BookmarkContext = createContext();
 
