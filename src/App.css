@@ -7,15 +7,15 @@
   gap: 1rem;
 }
 .headerSearch {
-  display: flex;
   width: 100%;
   max-width: 900px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  padding: 1rem;
   border: 1px solid #ebe9e9;
   border-radius: 1.5rem;
-  padding: 1rem;
 }
 
 .headerSearchInput {
@@ -23,16 +23,16 @@
   font-size: 1rem;
 }
 .headerSearchItem {
+  position: relative;
   display: flex;
   align-items: center;
-  position: relative;
 }
 .headerSearchItem .separator {
-  display: inline-block;
   width: 1px;
   height: 30px;
-  background-color: var(--text-400);
+  display: inline-block;
   margin: 0 1rem;
+  background-color: var(--text-400);
 }
 .textField {
   padding: 0.7rem 1rem;
@@ -48,21 +48,21 @@
 }
 
 .guestOptions {
-  background-color: #fff;
-  box-shadow: 0 0 10px #efefef;
-  border-radius: 1rem;
-  padding: 1rem;
-  border: 1px solid var(--text-100);
+  width: 220px;
   position: absolute;
   top: 2rem;
-  width: 220px;
   z-index: 1000;
+  padding: 1rem;
+  border: 1px solid var(--text-100);
+  border-radius: 1rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px #efefef;
 }
 .guestOptionItem {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  justify-content: space-between;
 }
 .guestOptionItem:not(:last-child) {
   margin-bottom: 1rem;
@@ -107,12 +107,12 @@
 
 .headerSearchBtn {
   display: flex;
-  align-items: center;
   justify-content: center;
-  background-color: var(--primary-600);
-  color: #fff;
+  align-items: center;
   padding: 0.6rem;
   border-radius: 1rem;
+  color: #fff;
+  background-color: var(--primary-600);
 }
 
 /*  location list */
@@ -132,10 +132,10 @@
 .locationItem img {
   width: 100%;
   height: 20rem;
-  object-fit: cover;
   object-position: center;
-  border-radius: 0.5rem;
+  object-fit: cover;
   margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .locationItemDesc > :not(:last-child) {
@@ -149,23 +149,23 @@
   font-weight: 500;
 }
 .locationItem .locationItemDesc .price {
-  font-weight: 500;
   display: flex;
   align-items: center;
+  font-weight: 500;
 }
 
 .locationItem .locationItemDesc .price span {
-  color: var(--text-400);
   font-weight: 400;
+  color: var(--text-400);
 }
 
 /* room detail */
 .room {
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  gap: 1rem;
   max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1rem;
   margin: 2rem auto;
 }
 
@@ -186,22 +186,22 @@
 /* map */
 
 .mapContainer {
+  position: relative;
   flex: 1;
   background-color: var(--text-100);
-  position: relative;
 }
 .mapContainer button.getLocation {
-  padding: 0.3rem 0.5rem;
-  font-size: 0.7rem;
-  font-weight: bold;
-  border-radius: 0.5rem;
   position: absolute;
   bottom: 1rem;
   left: 1rem;
+  z-index: 1000;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #fff;
   background-color: var(--primary-600);
   box-shadow: 0 0 10px var(--primary-600);
-  color: #fff;
-  z-index: 1000;
 }
 .map {
   height: 100%;
@@ -233,30 +233,30 @@
   font-weight: 500;
 }
 .searchItem .searchItemDesc .price {
-  font-weight: 500;
   display: flex;
   align-items: center;
+  font-weight: 500;
 }
 
 .searchItem .searchItemDesc .price span {
-  color: var(--text-400);
   font-weight: 400;
+  color: var(--text-400);
 }
 
 /* app layout */
 .appLayout {
-  margin-top: 1rem;
+  height: calc(100vh - 130px);
   display: flex;
   justify-content: space-between;
-  height: calc(100vh - 130px);
-  /* background-color: var(--text-100); */
   align-items: stretch;
+  margin-top: 1rem;
+  /* background-color: var(--text-100); */
 }
 
 .sidebar {
   width: 35%;
-  overflow-y: scroll;
   padding-right: 1rem;
+  overflow-y: scroll;
 }
 
 .searchItem.current-hotel {
@@ -275,13 +275,13 @@
   margin-top: 1rem;
 }
 .bookmarkItem {
-  margin-bottom: 1rem;
-  border: 1px solid var(--text-400);
-  border-radius: 1rem;
-  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--text-400);
+  border-radius: 1rem;
 }
 
 .bookmarkList .bookmarkItem.current-bookmark {
@@ -294,16 +294,16 @@
 }
 
 .bookmarkItem .trash {
-  color: var(--rose-500);
   width: 1.1rem;
   height: 1.1rem;
+  color: var(--rose-500);
 }
 
 /* form */
 
 .form .formControl {
-  margin-bottom: 1rem;
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .formControl label {
@@ -312,16 +312,16 @@
 }
 
 .formControl input {
-  border: 1px solid var(--text-400);
-  padding: 0.5rem;
-  border-radius: 0.5rem;
   width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--text-400);
+  border-radius: 0.5rem;
 }
 
 .buttons {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .btn {
@@ -339,20 +339,20 @@
 
 .formControl .flag {
   position: absolute;
-  right: 1rem;
   top: 50%;
+  right: 1rem;
 }
 
 a.active {
-  color: var(--primary-600);
   font-weight: 700;
+  color: var(--primary-600);
 }
 
 .loginContainer {
-  margin: 2rem auto;
   max-width: 25rem;
-  border: 1px solid var(--text-300);
+  margin: 2rem auto;
   padding: 1rem;
+  border: 1px solid var(--text-300);
   border-radius: 1rem;
 }
 
@@ -365,7 +365,7 @@ a.active {
 }
 
 .icon.logout {
-  color: var(--rose-500);
   width: 1.1rem;
   height: 1.1rem;
+  color: var(--rose-500);
 }
