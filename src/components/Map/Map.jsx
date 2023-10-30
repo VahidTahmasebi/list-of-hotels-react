@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
-
-import { useHotels } from "../context/HotelsProvider";
+import { Navigate, useSearchParams } from "react-router-dom";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  useMap,
+  useMapEvent,
+} from "react-leaflet";
 
 import useGeoLocation from "../../hooks/useGeoLocation";
 
-const Map = () => {
+const Map = ({ markerLocations }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-
-  const { isLoading, hotels } = useHotels();
 
   const {
     isLoading: isLoadingPosition,
@@ -49,9 +52,10 @@ const Map = () => {
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
 
+        <DetectClick />
         <ChangeCenter position={mapCenter} />
 
-        {hotels.map((item) => (
+        {markerLocations.map((item) => (
           <Marker key={item.id} position={[item.latitude, item.longitude]}>
             <Popup>{item.host_location}</Popup>
           </Marker>
@@ -68,5 +72,15 @@ export default Map;
 function ChangeCenter({ position }) {
   const map = useMap();
   map.setView(position);
+
+  return null;
+}
+
+function DetectClick() {
+  useMapEvent({
+    click: (e) =>
+      Navigate(`/bookmark/add?lat=${e.latlang.lat}&${e.latlang.lng}`),
+  });
+
   return null;
 }
