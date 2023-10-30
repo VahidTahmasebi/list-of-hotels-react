@@ -2,6 +2,11 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 
 import { useRef, useState } from "react";
+import {
+  createSearchParams,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
 
@@ -11,7 +16,11 @@ import { HiCalendar, HiMinus, HiPlus, HiSearch } from "react-icons/hi";
 import useOutsideClick from "../../../hooks/useOutsideClick";
 
 const Header = () => {
-  const [destination, setDestination] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [destination, setDestination] = useState(
+    searchParams.get("destination") || ""
+  );
 
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
@@ -28,6 +37,17 @@ const Header = () => {
     children: 0,
     room: 1,
   });
+
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    const encodedParams = createSearchParams({
+      date: JSON.stringify(date),
+      destination,
+      options: JSON.stringify(options),
+    });
+    navigate({ pathname: "/hotels", search: encodedParams.toString() });
+  };
 
   const handleOptions = (name, operation) => {
     setOptions((prev) => {
@@ -88,7 +108,7 @@ const Header = () => {
           <span className="separator"></span>
         </div>
         <div className="headerSearchItem">
-          <button className="headerSearchBtn">
+          <button className="headerSearchBtn" onClick={handleSearch}>
             <HiSearch className="headerIcon" />
           </button>
         </div>
