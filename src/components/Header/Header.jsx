@@ -13,7 +13,7 @@ import { format } from "date-fns";
 import { MdLocationOn } from "react-icons/md";
 import { HiCalendar, HiMinus, HiPlus, HiSearch } from "react-icons/hi";
 
-import useOutsideClick from "../../../hooks/useOutsideClick";
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 const Header = () => {
   const navigate = useNavigate();

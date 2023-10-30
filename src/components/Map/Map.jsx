@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 
 import { useHotels } from "../context/HotelsProvider";
-import useGeoLocation from "../../../hooks/useGeoLocation";
+import useGeoLocation from "../../hooks/useGeoLocation";
 
 const Map = () => {
   const [searchParams, setSearchParams] = useSearchParams();
