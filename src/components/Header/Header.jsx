@@ -16,6 +16,7 @@ import { HiCalendar, HiMinus, HiPlus, HiSearch } from "react-icons/hi";
 import useOutsideClick from "../../../hooks/useOutsideClick";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [destination, setDestination] = useState(
@@ -37,8 +38,6 @@ const Header = () => {
     children: 0,
     room: 1,
   });
-
-  const navigate = useNavigate();
 
   const handleSearch = () => {
     const encodedParams = createSearchParams({
