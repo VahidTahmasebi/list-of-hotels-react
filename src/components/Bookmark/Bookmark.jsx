@@ -1,14 +1,23 @@
 import { Link } from "react-router-dom";
 import ReactCountryFlag from "react-country-flag";
 
+import { HiTrash } from "react-icons/hi";
+
 import { useBookmark } from "../context/BookmarkListProvider";
 
 import Loader from "../Loader/Loader";
 
 const Bookmark = () => {
-  const { isLoading, bookmarks, currentBookmark } = useBookmark();
+  const { isLoading, bookmarks, currentBookmark, deleteBookmark } =
+    useBookmark();
+
+  const handleDelete = async (e, id) => {
+    e.preventDefault();
+    await deleteBookmark(id);
+  };
 
   if (isLoading) return <Loader />;
+  if (!Bookmark.length) return <p>There is no bookmarked location</p>;
 
   return (
     <div>
@@ -28,6 +37,9 @@ const Bookmark = () => {
                   &nbsp; <strong>{item.cityName}</strong> &nbsp;
                   <span>{item.country}</span>
                 </div>
+                <button onClick={(e) => handleDelete(e, item.id)}>
+                  <HiTrash className="trash" />
+                </button>
               </div>
             </Link>
           );
