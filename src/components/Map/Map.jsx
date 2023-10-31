@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   MapContainer,
   Marker,
@@ -10,9 +10,10 @@ import {
 } from "react-leaflet";
 
 import useGeoLocation from "../../hooks/useGeoLocation";
+import useUrlLocation from "../../hooks/useUrlLocation";
 
 const Map = ({ markerLocations }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [lat, lng] = useUrlLocation();
 
   const {
     isLoading: isLoadingPosition,
@@ -23,9 +24,6 @@ const Map = ({ markerLocations }) => {
   const [mapCenter, setMapCenter] = useState([
     52.3683983335535, 4.901213818026321,
   ]);
-
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
 
   useEffect(() => {
     if (lat && lng) setMapCenter([lat, lng]);
@@ -61,7 +59,6 @@ const Map = ({ markerLocations }) => {
           </Marker>
         ))}
       </MapContainer>
-      ,
     </div>
   );
 };
@@ -77,9 +74,11 @@ function ChangeCenter({ position }) {
 }
 
 function DetectClick() {
+  const navigate = useNavigate();
+
   useMapEvent({
     click: (e) =>
-      Navigate(`/bookmark/add?lat=${e.latlang.lat}&${e.latlang.lng}`),
+      navigate(`/bookmark/add?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
   });
 
   return null;
