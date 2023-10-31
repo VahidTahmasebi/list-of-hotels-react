@@ -17,7 +17,7 @@ const Bookmark = () => {
   };
 
   if (isLoading) return <Loader />;
-  if (!Bookmark.length) return <p>There is no bookmarked location</p>;
+  if (!bookmarks.length) return <p>There is no bookmarked location</p>;
 
   return (
     <div>
