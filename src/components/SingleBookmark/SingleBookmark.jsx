@@ -10,13 +10,13 @@ const SingleBookmark = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { isLoadingCurrBookmark, getBookmark, currentBookmark } = useBookmark();
+  const { isLoading, getBookmark, currentBookmark } = useBookmark();
 
   useEffect(() => {
     getBookmark(id);
   }, [id]);
 
-  if (isLoadingCurrBookmark || !currentBookmark) return <Loader />;
+  if (isLoading || !currentBookmark) return <Loader />;
 
   return (
     <div>
