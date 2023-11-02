@@ -10,7 +10,7 @@ import HotelsProvider from "./components/context/HotelsProvider";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 import Header from "./components/Header/Header";
-import Login from "./components/login/login";
+import Login from "./components/Login/Login";
 import LocationList from "./components/LocationList/LocationList";
 import AppLayout from "./components/AppLayout/AppLayout";
 import Hotels from "./components/Hotels/Hotels";
