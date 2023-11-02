@@ -2,7 +2,8 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const BASE_URL = "http://localhost:5000";
+// const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://api.npoint.io/a3ca200dd8f4b2737aff";
 
 const BookmarkContext = createContext();
 

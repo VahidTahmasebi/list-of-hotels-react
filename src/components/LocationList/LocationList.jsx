@@ -3,7 +3,11 @@ import useFetch from "../../hooks/useFetch";
 import Loader from "../Loader/Loader";
 
 const LocationList = () => {
-  const { isLoading, data } = useFetch("http://localhost:5000/hotels", "");
+  // const { isLoading, data } = useFetch("http://localhost:5000/hotels", "");
+  const { isLoading, data } = useFetch(
+    "https://api.npoint.io/a3ca200dd8f4b2737aff/hotels",
+    ""
+  );
 
   if (isLoading) return <Loader />;
 

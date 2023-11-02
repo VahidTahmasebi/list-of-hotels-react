@@ -5,7 +5,8 @@ import toast from "react-hot-toast";
 
 import useFetch from "../../hooks/useFetch";
 
-const BASE_URL = "http://localhost:5000/hotels";
+// const BASE_URL = "http://localhost:5000/hotels";
+const BASE_URL = "https://api.npoint.io/a3ca200dd8f4b2737aff/hotels";
 
 const HotelContext = createContext();
 
