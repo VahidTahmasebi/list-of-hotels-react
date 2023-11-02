@@ -20,6 +20,7 @@ import useOutsideClick from "../../hooks/useOutsideClick";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { user, isAuthenticated, logout } = useAuth();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [destination, setDestination] = useState(
@@ -62,7 +63,7 @@ const Header = () => {
 
   return (
     <div className="header">
-      <NavLink to="/bookmark">Bookmarks</NavLink>
+      {isAuthenticated && <NavLink to="/bookmark">Bookmarks</NavLink>}
       <div className="headerSearch">
         <div className="headerSearchItem">
           <MdLocationOn className="headerIcon locationIcon" />
@@ -116,7 +117,7 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <User />
+      <User user={user} isAuthenticated={isAuthenticated} logout={logout} />
     </div>
   );
 };
@@ -173,10 +174,8 @@ export function OptionItem({ options, type, minLimit, handleOptions }) {
   );
 }
 
-function User() {
+function User({ user, isAuthenticated, logout }) {
   const navigate = useNavigate();
-
-  const { user, isAuthenticated, logout } = useAuth();
 
   const handleLogout = () => {
     logout();
